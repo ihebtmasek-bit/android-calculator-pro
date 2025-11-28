@@ -7,7 +7,7 @@
 
     <application
         android:icon="@mipmap/ic_launcher"
-        android:label="AAP 2 Calcul"
+        android:label="Calculator Pro v2.0"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
         android:usesCleartextTraffic="false"
         tools:targetApi="35">
