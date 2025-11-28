@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    compileSdk 34  # Compiler avec API 34 stable
+    compileSdk 34
     namespace 'com.aap2calcul.app'
 
     defaultConfig {
         applicationId "com.aap2calcul.app"
         minSdk 21
-        targetSdk 35  # Target API 35 pour Google Play
+        targetSdk 35
         versionCode 5
         versionName "5.0"
     }

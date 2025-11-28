@@ -5,8 +5,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build-api35:
-    runs-on: macos-latest  # macOS a souvent moins de problèmes de SDK
+  build:
+    runs-on: macos-latest
     
     steps:
     - uses: actions/checkout@v4
@@ -20,7 +20,7 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
       
-    - name: Build Signed AAB API 35
+    - name: Build Signed AAB
       run: |
         chmod +x gradlew
         ./gradlew clean bundleRelease
@@ -28,5 +28,5 @@ jobs:
     - name: Upload Signed AAB
       uses: actions/upload-artifact@v4
       with:
-        name: calculator-api35-macos-aab
+        name: calculator-api35-aab
         path: app/build/outputs/bundle/release/
