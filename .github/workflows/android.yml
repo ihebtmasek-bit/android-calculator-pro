@@ -20,19 +20,19 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
       
-    - name: Build Signed AAB
+    - name: Build Signed Release AAB
       run: |
         chmod +x gradlew
-        ./gradlew bundleRelease
+        ./gradlew clean bundleRelease
         
     - name: Upload Signed AAB
       uses: actions/upload-artifact@v4
       with:
-        name: calculator-signed-aab
+        name: calculator-signed-aab-v2
         path: app/build/outputs/bundle/release/
         
-    - name: Upload APK
+    - name: Upload Signed APK
       uses: actions/upload-artifact@v4
       with:
-        name: calculator-apk
+        name: calculator-signed-apk-v2
         path: app/build/outputs/apk/release/
