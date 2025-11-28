@@ -1,4 +1,4 @@
-name: Build AAP 2 Calcul
+name: Build Android Calculator Pro
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - name: Setup JDK 17
+    - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
         java-version: '17'
@@ -20,13 +20,19 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
       
-    - name: Build AAB
+    - name: Build Signed AAB
       run: |
         chmod +x gradlew
         ./gradlew bundleRelease
         
-    - name: Upload AAB
+    - name: Upload Signed AAB
       uses: actions/upload-artifact@v4
       with:
-        name: aap2calcul-aab
+        name: calculator-signed-aab
         path: app/build/outputs/bundle/release/
+        
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: calculator-apk
+        path: app/build/outputs/apk/release/
